@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Akta - @ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div id="sidebar">
+        <img src="~/img/user.png" alt="user" />
+        <span id="username">Administrator</span>
+        <ul class="menu">
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="Users">Users</a></li>
+            <li><a asp-controller="App" asp-action="Locations">Locations</a></li>
+        </ul>
+    </div>
+    <div id="wrapper">
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+            &copy; Akta Ltd.
+        </div>
+    </div>
+    <script type="text/javascript" src="~/lib/jQuery//dist/jquery.min.js"></script>
+    @RenderSection("scripts", false)
+    <script type="text/javascript" src="~/js/site.js"></script>
+</body>
+</html>

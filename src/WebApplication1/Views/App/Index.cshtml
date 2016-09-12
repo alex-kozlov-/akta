@@ -1,45 +1,16 @@
-﻿@{ 
-    ViewBag.Title = "Home Page";
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Akta - @ViewBag.Title</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <div id="sidebar">
-        <img src="img/user.png" alt="user" />
-        <span id="username">Administrator</span>
-        <ul class="menu">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Locations</a></li>
-        </ul>
+﻿
+<button id="toggleSidebar">Toggle Sidebar</button>
+<h1>Akta</h1>
+<form>
+    <div>
+        <label>Date:</label>
+        <input />
     </div>
-    <div id="wrapper">
-        <div id="main">
-            <button id="toggleSidebar">Toggle Sidebar</button>
-            <h1>Akta</h1>
-            <form>
-                <div>
-                    <label>Date:</label>
-                    <input />
-                </div>
-                <div>
-                    <label>Place:</label>
-                    <input />
-                </div>
-                <div>
-                    <input type="submit" value="Add" />
-                </div>
-            </form>
-        </div>
-        <div id="footer">
-            &copy; Akta Ltd.
-        </div>
+    <div>
+        <label>Place:</label>
+        <input />
     </div>
-    <script type="text/javascript" src="lib/jQuery//dist/jquery.min.js"></script>
-    <script type="text/javascript" src="js/site.js"></script>
-</body>
-</html>
+    <div>
+        <input type="submit" value="Add" />
+    </div>
+</form>

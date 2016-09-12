@@ -12,6 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        "MailSettings__ToAddress": "andrei.shenets@learning.com",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
