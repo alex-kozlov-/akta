@@ -54,3 +54,7 @@ input[type=submit] {
 #wrapper {
     margin: 0 0 0 250px;
 }
+
+#username {
+    color: #eee;
+}
