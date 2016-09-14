@@ -5,11 +5,14 @@
     $('#toggleSidebar').on('click', function () {
 
         $sidebarAndWrapper.toggleClass('hide-sidebar');
+        $toggleIcon = $('#toggleSidebar i.fa');
 
         if ($sidebarAndWrapper.hasClass('hide-sidebar')) {
-            $(this).text("Show Toggle");
+            $toggleIcon.removeClass('fa-angle-left');
+            $toggleIcon.addClass('fa-angle-right');
         } else {
-            $(this).text("Hide Toggle");
+            $toggleIcon.removeClass('fa-angle-right');
+            $toggleIcon.addClass('fa-angle-left');
         }
     })
 })()
