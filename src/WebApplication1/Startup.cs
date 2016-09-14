@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Services;
 using Microsoft.Extensions.Configuration;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -42,6 +43,8 @@ namespace WebApplication1
             {
                 // Implement real service.
             }
+
+            services.AddDbContext<ParkingContext>();
 
             services.AddMvc();
         }

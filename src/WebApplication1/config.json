@@ -1,5 +1,8 @@
 {
-    "MailSettings": {
-        "ToAddress": "alex.kozlov@outlook.com"
-    }
+  "MailSettings": {
+    "ToAddress": "alex.kozlov@outlook.com"
+  },
+  "ConnectionStrings": {
+    "ParkingContextConnection": "Server=.\\SQL_SERVER;Database=TheParking;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
 }

@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApplication1.Models;
 using WebApplication1.Services;
 using WebApplication1.ViewModels;
 
@@ -14,15 +16,18 @@ namespace WebApplication1.Controllers.Web
     {
         private IMailService _mailService;
         private IConfigurationRoot _config;
+        private ParkingContext _context;
 
-        public AppController(IMailService mailService, IConfigurationRoot config)
+        public AppController(IMailService mailService, IConfigurationRoot config, ParkingContext context)
         {
             _mailService = mailService;
             _config = config;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            var data = _context.Parkings.ToList();
             return View();
         }
 
