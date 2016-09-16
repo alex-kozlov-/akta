@@ -46,10 +46,15 @@ namespace WebApplication1
 
             services.AddDbContext<ParkingContext>();
 
+            services.AddTransient<ParkingContextSeedData>();
+
             services.AddMvc();
         }
         
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, 
+            IHostingEnvironment env, 
+            ILoggerFactory loggerFactory,
+            ParkingContextSeedData seeder)
         {
             loggerFactory.AddConsole();
 
@@ -65,6 +70,8 @@ namespace WebApplication1
                 template: "{controller}/{action}/{id?}",
                 defaults: new { controller = "App", action = "Index" })
                 );
+
+            seeder.EnsureSeedData().Wait();
         }
     }
 }

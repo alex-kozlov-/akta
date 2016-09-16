@@ -3,6 +3,6 @@
     "ToAddress": "alex.kozlov@outlook.com"
   },
   "ConnectionStrings": {
-    "ParkingContextConnection": "Server=.\\SQL_SERVER;Database=TheParking;Trusted_Connection=true;MultipleActiveResultSets=true;"
+    "ParkingContextConnection": "Server=.\\SQL_SERVER_2012;Database=TheParking;Trusted_Connection=true;MultipleActiveResultSets=true;"
   }
 }
