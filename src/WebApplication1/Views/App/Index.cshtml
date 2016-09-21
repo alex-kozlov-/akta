@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿@model IEnumerable<WebApplication1.Models.Parking>
+<div class="row">
     <div class="col-md-6">
         <h1>Akta</h1>
         <form>
@@ -17,5 +18,12 @@
     </div>
     <div class="col-md-6">
         <h2>The Map</h2>
+
+        <ul>
+            @foreach (var parking in Model)
+            {
+                <li>@parking.Name : @parking.OpenedDate.ToString("d")</li>
+            }
+        </ul>
     </div>
 </div>

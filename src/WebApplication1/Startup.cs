@@ -48,19 +48,29 @@ namespace WebApplication1
 
             services.AddTransient<ParkingContextSeedData>();
 
+            services.AddScoped<IParkingRepository, ParkingRepository>();
+
+            services.AddLogging();
+
             services.AddMvc();
         }
         
         public void Configure(IApplicationBuilder app, 
             IHostingEnvironment env, 
             ILoggerFactory loggerFactory,
-            ParkingContextSeedData seeder)
+            ParkingContextSeedData seeder,
+            ILoggerFactory factory)
         {
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                factory.AddDebug(LogLevel.Debug);
+            }
+            else
+            {
+                factory.AddDebug(LogLevel.Information);
             }
 
             app.UseStaticFiles();

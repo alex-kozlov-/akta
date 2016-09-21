@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +17,33 @@ namespace WebApplication1.Controllers.Web
     {
         private IMailService _mailService;
         private IConfigurationRoot _config;
-        private ParkingContext _context;
+        private IParkingRepository _repository;
+        private ILogger<AppController> _logger;
 
-        public AppController(IMailService mailService, IConfigurationRoot config, ParkingContext context)
+        public AppController(
+            IMailService mailService, 
+            IConfigurationRoot config, 
+            IParkingRepository repository,
+            ILogger<AppController> logger)
         {
             _mailService = mailService;
             _config = config;
-            _context = context;
+            _repository = repository;
+            _logger = logger;
         }
 
         public IActionResult Index()
         {
-            var data = _context.Parkings.ToList();
-            return View();
+            try
+            {
+                var data = _repository.GetAllParkings();
+                return View(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error while getting all parkings: {ex.Message}.");
+                return Redirect("/error");
+            }
         }
 
         public IActionResult Users()
