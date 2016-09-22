@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using WebApplication1.Services;
 using Microsoft.Extensions.Configuration;
 using WebApplication1.Models;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace WebApplication1
 {
@@ -52,7 +54,10 @@ namespace WebApplication1
 
             services.AddLogging();
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(config => new JsonSerializerSettings() {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
         }
         
         public void Configure(IApplicationBuilder app, 
