@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using WebApplication1.Models;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
+using AutoMapper;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1
 {
@@ -66,6 +68,10 @@ namespace WebApplication1
             ParkingContextSeedData seeder,
             ILoggerFactory factory)
         {
+            Mapper.Initialize(config => {
+                config.CreateMap<ParkingViewModel, Parking>().ReverseMap();
+            });
+
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
